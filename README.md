@@ -10,7 +10,7 @@ ev3 = EV3Brick()
 # Initialize the motors.
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
-En este caso left_motor  y  right_motor son el nombre de las variables(podemos elegir otros) y Motor(Port.B) define el tipo de variable motor
+En este caso left_motor  y  right_motor son el nombre de las variables(podemos elegir otros) y Motor(Port.B) define el tipo de variable, Motor, 
 y la asigna a un puerto, acá solo podemos cambiar los puertos. 
 
 # Initialize the drive base.
