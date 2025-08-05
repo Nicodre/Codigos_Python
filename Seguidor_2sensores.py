@@ -1,5 +1,3 @@
-#!/usr/bin/env pybricks-micropython
-
 from pybricks.ev3devices import Motor, ColorSensor
 from pybricks.parameters import Port
 from pybricks.tools import wait
