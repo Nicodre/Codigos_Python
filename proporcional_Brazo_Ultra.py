@@ -9,13 +9,13 @@ motor_derecho = Motor(Port.C)
 brazo = Motor(Port.A)  # Motor del brazo circular
 
 # Sensores
-sensor_izquierdo = ColorSensor(Port.S1)
-sensor_derecho = ColorSensor(Port.S4)
-sensor_ir = InfraredSensor(Port.S3)
-sensor_ir2 = InfraredSensor(Port.S4)
+sensor_izquierdo = ColorSensor(Port.S2)
+sensor_derecho = ColorSensor(Port.S3)
+sensor_pelota = InfraredSensor(Port.S1)
+sensor_pared = InfraredSensor(Port.S4)
 
 # Base del robot
-robot = DriveBase(motor_izquierdo, motor_derecho, wheel_diameter=55.5, axle_track=292)
+robot = DriveBase(motor_izquierdo, motor_derecho, wheel_diameter=55, axle_track=120)
 
 # Valores de luz
 NEGRO = 9
@@ -37,7 +37,7 @@ def abrir_brazo():
 # Bucle principal
 while True:
     distancia = sensor_ir.distance()
-    distancia2 = sensor_ir2.distance()
+    distancialateral = sensor_ir2.distance()
     
     if distancia <= 15:
         # Avanza 1 segundo
@@ -63,17 +63,18 @@ while True:
         robot.drive(-500, 0)
         robot.turn(90) # Gira a la derecha y continua siguiendo linea.
 
-        else if distancialateral <= 15
-            robot.drive(VELOCIDAD, 0) # Sigue para descartar pelota.
-            wait(2000)
+    else if distancialateral <= 15
+        robot.turn(-90)        
+        robot.drive(VELOCIDAD, 0) # Sigue para descartar pelota.
+        wait(2000)
 
-             abrir_brazo()
+        abrir_brazo()
 
         # Lanzar pelota va haci adelante para empujar la pelota y regresa
-            robot.drive(500, 0)
-            wait(50)
-            robot.drive(-500, 0)
-            robot.turn(90) 
+        robot.drive(500, 0)
+        wait(50)
+        robot.drive(-500, 0)
+        robot.turn(90) 
             
         
     # Seguimiento de línea
